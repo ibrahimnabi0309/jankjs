@@ -1,7 +1,7 @@
-# 🟢 Lume HUD
+# 🟢 JankJS
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-org/lume-hud/main/.github/assets/demo.gif" alt="Lume HUD in action" width="720" />
+  <img src="https://raw.githubusercontent.com/your-org/jankjs/main/.github/assets/demo.gif" alt="JankJS in action" width="720" />
 </p>
 
 <p align="center">
@@ -10,20 +10,20 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/lume-hud"><img src="https://img.shields.io/npm/v/lume-hud?style=flat-square&color=4ade80" alt="npm version" /></a>
-  <a href="https://bundlephobia.com/package/lume-hud"><img src="https://img.shields.io/bundlephobia/minzip/lume-hud?style=flat-square&label=gzip%20size&color=4ade80" alt="bundle size" /></a>
-  <a href="https://github.com/your-org/lume-hud/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-org/lume-hud?style=flat-square&color=4ade80" alt="license" /></a>
-  <a href="https://github.com/your-org/lume-hud/actions"><img src="https://img.shields.io/github/actions/workflow/status/your-org/lume-hud/ci.yml?style=flat-square&label=CI" alt="CI status" /></a>
-  <a href="https://github.com/your-org/lume-hud/stargazers"><img src="https://img.shields.io/github/stars/your-org/lume-hud?style=flat-square&color=f59e0b" alt="GitHub stars" /></a>
+  <a href="https://www.npmjs.com/package/jankjs"><img src="https://img.shields.io/npm/v/jankjs?style=flat-square&color=4ade80" alt="npm version" /></a>
+  <a href="https://bundlephobia.com/package/jankjs"><img src="https://img.shields.io/bundlephobia/minzip/jankjs?style=flat-square&label=gzip%20size&color=4ade80" alt="bundle size" /></a>
+  <a href="https://github.com/your-org/jankjs/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-org/jankjs?style=flat-square&color=4ade80" alt="license" /></a>
+  <a href="https://github.com/your-org/jankjs/actions"><img src="https://img.shields.io/github/actions/workflow/status/your-org/jankjs/ci.yml?style=flat-square&label=CI" alt="CI status" /></a>
+  <a href="https://github.com/your-org/jankjs/stargazers"><img src="https://img.shields.io/github/stars/your-org/jankjs?style=flat-square&color=f59e0b" alt="GitHub stars" /></a>
 </p>
 
 ---
 
-## Why Lume HUD?
+## Why JankJS?
 
-The Chrome DevTools Performance tab is powerful — but it requires you to stop, record, analyze, and repeat. **Lume HUD gives you a live, always-on overlay** that surfaces the metrics that matter while you build.
+The Chrome DevTools Performance tab is powerful — but it requires you to stop, record, analyze, and repeat. **JankJS gives you a live, always-on overlay** that surfaces the metrics that matter while you build.
 
-| Without Lume HUD | With Lume HUD |
+| Without JankJS | With JankJS |
 |---|---|
 | Open DevTools → Record → Analyze → Close | See jank highlighted **as it happens** |
 | Context-switch out of your editor | Stay in flow — data is in the corner of your screen |
@@ -51,22 +51,22 @@ The Chrome DevTools Performance tab is powerful — but it requires you to stop,
 ### Install
 
 ```bash
-npm install -D lume-hud
+npm install -D jankjs
 # or
-yarn add -D lume-hud
+yarn add -D jankjs
 # or
-pnpm add -D lume-hud
+pnpm add -D jankjs
 ```
 
 ### Initialize
 
 ```typescript
 // main.ts (or index.ts / app entry point)
-import { initLumeHUD } from 'lume-hud';
+import { initJankJS } from 'jankjs';
 
 // The DEV guard ensures zero bytes ship to production
 if (import.meta.env.DEV) {
-  initLumeHUD();
+  initJankJS();
 }
 ```
 
@@ -77,8 +77,8 @@ That's it. A floating pill appears in the bottom-right corner of your app.
 ```html
 <!-- Add before </body> in your dev environment -->
 <script type="module">
-  import { initLumeHUD } from 'https://cdn.jsdelivr.net/npm/lume-hud/dist/lume-hud.es.js';
-  initLumeHUD();
+  import { initJankJS } from 'https://cdn.jsdelivr.net/npm/jankjs/dist/jankjs.es.js';
+  initJankJS();
 </script>
 ```
 
@@ -87,7 +87,7 @@ That's it. A floating pill appears in the bottom-right corner of your app.
 ## Configuration
 
 ```typescript
-initLumeHUD({
+initJankJS({
   position: 'bottom-right',       // 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
   theme: 'dark',                  // 'dark' | 'light' | 'system'
   metrics: ['jank', 'cls', 'lcp', 'assets'], // cherry-pick what you need
@@ -113,7 +113,7 @@ initLumeHUD({
 | Asset Weight | `PerformanceResourceTiming` | ✅ | ✅ | ✅ |
 | FPS | `requestAnimationFrame` delta | ✅ | ✅ | ✅ |
 
-> **Note:** Long Task attribution is a Chromium-only feature. Lume HUD gracefully degrades in non-Chromium browsers — metrics that aren't supported are hidden automatically.
+> **Note:** Long Task attribution is a Chromium-only feature. JankJS gracefully degrades in non-Chromium browsers — metrics that aren't supported are hidden automatically.
 
 ---
 
@@ -124,17 +124,17 @@ The core is framework-agnostic Vanilla TypeScript. Thin wrappers provide deeper 
 ### React
 
 ```bash
-npm install -D lume-hud-react
+npm install -D jankjs-react
 ```
 
 ```tsx
 // App.tsx
-import { LumeHUD } from 'lume-hud-react';
+import { JankJS } from 'jankjs-react';
 
 export default function App() {
   return (
     <>
-      {import.meta.env.DEV && <LumeHUD metrics={['jank', 'cls']} />}
+      {import.meta.env.DEV && <JankJS metrics={['jank', 'cls']} />}
       <YourApp />
     </>
   );
@@ -146,32 +146,32 @@ The React adapter additionally tracks **per-component re-render counts** using a
 ### Vue
 
 ```bash
-npm install -D lume-hud-vue
+npm install -D jankjs-vue
 ```
 
 ```typescript
 // main.ts
 import { createApp } from 'vue';
-import { LumeHUDPlugin } from 'lume-hud-vue';
+import { JankJSPlugin } from 'jankjs-vue';
 
 const app = createApp(App);
-if (import.meta.env.DEV) app.use(LumeHUDPlugin);
+if (import.meta.env.DEV) app.use(JankJSPlugin);
 app.mount('#app');
 ```
 
 ### Svelte
 
 ```bash
-npm install -D lume-hud-svelte
+npm install -D jankjs-svelte
 ```
 
 ```svelte
 <!-- App.svelte -->
 <script>
-  import { lumeHud } from 'lume-hud-svelte';
+  import { jankJs } from 'jankjs-svelte';
 </script>
 
-<div use:lumeHud>
+<div use:jankJs>
   <slot />
 </div>
 ```
@@ -203,7 +203,7 @@ See the full breakdown in [ROADMAP.md](./ROADMAP.md).
 
 ## Contributing
 
-Lume HUD is built in the open and contributions are very welcome. Whether you're fixing a bug, adding a metric, or improving the docs — there's a path for you.
+JankJS is built in the open and contributions are very welcome. Whether you're fixing a bug, adding a metric, or improving the docs — there's a path for you.
 
 **Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a PR.** It covers:
 
@@ -216,8 +216,8 @@ Lume HUD is built in the open and contributions are very welcome. Whether you're
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/lume-hud.git
-cd lume-hud
+git clone https://github.com/your-org/jankjs.git
+cd jankjs
 
 # Install dependencies (monorepo — uses pnpm workspaces)
 pnpm install
@@ -238,7 +238,7 @@ The demo app at `apps/demo` renders a page with intentional jank, layout shifts,
 
 New to the codebase? Start here:
 
-- Browse issues tagged [`good first issue`](https://github.com/your-org/lume-hud/labels/good%20first%20issue)
+- Browse issues tagged [`good first issue`](https://github.com/your-org/jankjs/labels/good%20first%20issue)
 - Each issue includes a pointer to the relevant file and a suggested approach
 - Feel free to ask questions directly in the issue thread before starting work
 
@@ -247,7 +247,7 @@ New to the codebase? Start here:
 ## Architecture Overview
 
 ```
-lume-hud/
+jankjs/
 ├── packages/
 │   ├── core/               # Vanilla TypeScript — zero dependencies
 │   │   └── src/
@@ -268,7 +268,7 @@ The core principle is **decoupled observation with batched rendering** — obser
 
 ## Performance Impact
 
-Lume HUD is designed to be a non-participant in the metrics it measures.
+JankJS is designed to be a non-participant in the metrics it measures.
 
 - **Observer overhead:** Entry processing is always deferred to the next animation frame — never synchronous
 - **Rendering:** The HUD renders on its own `rAF` loop, completely independent of your app's render cycle
@@ -279,7 +279,7 @@ Lume HUD is designed to be a non-participant in the metrics it measures.
 
 ## Browser Support
 
-Lume HUD targets **modern evergreen browsers**. The core FPS counter and CLS/LCP tracking work across all major browsers. Long Task attribution is Chromium-only and degrades gracefully elsewhere.
+JankJS targets **modern evergreen browsers**. The core FPS counter and CLS/LCP tracking work across all major browsers. Long Task attribution is Chromium-only and degrades gracefully elsewhere.
 
 | Chrome | Firefox | Safari | Edge |
 |:---:|:---:|:---:|:---:|
@@ -289,7 +289,7 @@ Lume HUD targets **modern evergreen browsers**. The core FPS counter and CLS/LCP
 
 ## License
 
-[MIT](./LICENSE) © 2024 Lume HUD Contributors
+[MIT](./LICENSE) © 2024 JankJS Contributors
 
 ---
 
@@ -300,5 +300,5 @@ Inspired by the Chrome DevTools Performance panel, the [RAIL performance model](
 ---
 
 <p align="center">
-  If Lume HUD saved you time, consider <a href="https://github.com/your-org/lume-hud">starring the repo ⭐</a> — it helps others find it.
+  If JankJS saved you time, consider <a href="https://github.com/your-org/jankjs">starring the repo ⭐</a> — it helps others find it.
 </p>
