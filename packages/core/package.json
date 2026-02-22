@@ -1,0 +1,41 @@
+{
+  "name": "jankjs",
+  "version": "0.0.1",
+  "description": "A lightweight, zero-dependency performance monitoring HUD for web developers",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^4.0.0"
+  },
+  "keywords": [
+    "performance",
+    "monitoring",
+    "hud",
+    "jank",
+    "devtools"
+  ],
+  "license": "MIT"
+}

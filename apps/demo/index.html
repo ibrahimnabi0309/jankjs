@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JankJS Demo</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        color: #1a1a1a;
+      }
+      h1 {
+        color: #4ade80;
+      }
+      button {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      #log {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #f5f5f5;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        min-height: 100px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🟢 JankJS Demo</h1>
+    <p>
+      The JankJS HUD is active. Use the buttons below to trigger performance events and watch the
+      metrics update in real time.
+    </p>
+
+    <h2>Trigger Events</h2>
+    <button id="btn-jank">Trigger Jank (200 ms long task)</button>
+    <button id="btn-shift">Trigger Layout Shift</button>
+    <button id="btn-asset">Load Heavy Asset</button>
+    <button id="btn-clear">Clear Log</button>
+
+    <div id="log">Ready. Press a button above...</div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
